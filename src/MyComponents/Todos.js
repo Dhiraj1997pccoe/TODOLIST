@@ -5,9 +5,10 @@ export const Todos = (props) => {
     return (
         <div>
             <h3 className="text-center" >Todos List</h3>
-            {props.aTodos.map((todo) => {
-                return <Todo key={todo.key} todo={todo} onDelete={props.onDelete}/>;
-            })}
+            {!props.aTodos.length ? "No Todos to display" :
+                props.aTodos.map((todo) => {
+                    return <Todo key={todo.key} todo={todo} onDelete={props.onDelete} />;
+                })}
         </div>
     );
 };

@@ -2,18 +2,21 @@ import "./App.css";
 import Header from "./MyComponents/Header";
 import { Todos } from "./MyComponents/Todos";
 import { Footer } from "./MyComponents/Footer";
-
+import React, { useState } from "react";
 
 
 function App() {
 
     const onDelete = (todo) => {
         console.log("I am ondelete of ", todo);
-        // let index = aTodosList.indexOf(todo);
-        // aTodosList.splice(index, 1);
+        setTodos(aTodosList.filter((item) => {
+            return item !== todo;
+        }));
     }
 
-    let aTodosList = [
+    //const [state, setstate] = useState(initialState)
+
+    const [aTodosList, setTodos] = useState([
         {
             key: "A",
             desc: "Test A"
@@ -24,7 +27,7 @@ function App() {
             key: "C",
             desc: "Test C"
         }
-    ];
+    ]);
 
     return (
         <>
